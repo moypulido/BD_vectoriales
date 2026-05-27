@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  pgvector:
+    image: pgvector/pgvector:pg16
+    container_name: travel_vectordb
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret123
+      POSTGRES_DB: travel_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  pgdata:
