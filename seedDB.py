@@ -1,7 +1,10 @@
 import psycopg2
 import cohere
+from dotenv import load_dotenv
+import os
 
-co = cohere.ClientV2(api_key="MGaLveTWvhIie6MVOsXplmcRa9u5IJ3SCQ4fiiCl")
+load_dotenv()
+co = cohere.ClientV2(api_key=os.getenv("COHERE_API_KEY"))
 
 conn = psycopg2.connect(
     host="localhost", port=5432,

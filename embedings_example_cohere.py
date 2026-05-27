@@ -1,7 +1,9 @@
 import cohere
+from dotenv import load_dotenv
+import os
 
-# Inicializa el cliente con tu API Key (aquí usando la versión v2 del cliente)
-co = cohere.ClientV2(api_key="MGaLveTWvhIie6MVOsXplmcRa9u5IJ3SCQ4fiiCl")
+load_dotenv()
+co = cohere.ClientV2(api_key=os.getenv("COHERE_API_KEY"))
 
 textos = ["Me encanta la sopa", "El clima está agradable hoy"]
 
